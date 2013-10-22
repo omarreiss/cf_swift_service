@@ -189,7 +189,7 @@ class VCAP::Services::Swift::Node
       "availability_zone"       => @fog_options[:storage][:hp_avl_zone] || "nova",
       "authentication_version"  => @fog_options[:storage][:hp_auth_version],
       "service_type"            => @fog_options[:storage][:hp_service_type],
-      "account_meta_key"        => instance.account_meta_key
+      "account_meta_key"        => instance.account_meta_key,
       "self_signed_ssl"         => @fog_options[:storage][:self_signed_ssl] || false
     }
 
@@ -223,7 +223,7 @@ class VCAP::Services::Swift::Node
            :hp_use_upass_auth_style => true,
            :hp_avl_zone => cf_swift_credentials["availability_zone"],
            :hp_auth_version => cf_swift_credentials["authentication_version"].to_sym,
-           :hp_service_type => cf_swift_credentials["service_type"]
+           :hp_service_type => cf_swift_credentials["service_type"],
            :self_signed_ssl => cf_swift_credentials["self_signed_ssl"]
     }
   end
