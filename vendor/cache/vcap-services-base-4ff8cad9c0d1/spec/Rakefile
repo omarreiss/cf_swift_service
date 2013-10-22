@@ -1,0 +1,15 @@
+require 'rake'
+require 'tempfile'
+
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require(:default, :test)
+
+require 'rspec'
+require 'rspec/core/rake_task'
+require 'ci/reporter/rake/rspec'
+
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = "**/"#/unit_test/*_spec.rb"
+  t.rspec_opts = ["--format", "documentation", "--colour"]
+end
