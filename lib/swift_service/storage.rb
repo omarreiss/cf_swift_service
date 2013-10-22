@@ -2,9 +2,9 @@ module VCAP
   module Services
     module Swift
       class Storage
-        
+
         attr_reader :connection
-        
+
         def initialize(logger, fog_options = {
              :provider                => 'HP',
              :hp_access_key           => "admin",
@@ -14,6 +14,7 @@ module VCAP
              :hp_use_upass_auth_style => true,
              :hp_avl_zone             => 'nova',
              :hp_auth_version         => :v2,
+             :hp_service_type         => 'Object Storage',
              :self_signed_ssl         => false
           })
 
